@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def guestbook(request):
+    return HttpResponse("Hello, this is the guestbook form page!")
+
+
 
 
