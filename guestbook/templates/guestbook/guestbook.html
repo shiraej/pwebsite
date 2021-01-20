@@ -1,0 +1,27 @@
+{% if latest_guestbook %}
+    <table>
+    	<tr> 
+    		<th> Date </th>
+    		<th> Name </th>
+    		<th> Favourite Pokemon </th>
+    		<th> Favourite Joke </th>
+    		<th> I wanted to say... </th>
+    		<th> Picture </th>
+    	</tr>
+    	{% for entry in latest_guestbook %}
+    		<tr>
+	        	<td> {{ entry.entry_date }} </td>
+	        	<td> {{ entry.entry_name }} </td>
+	        	<td> {{ entry.entry_fav_pkmn }} </td>
+	        	<td> {{ entry.entry_fav_joke }} </td>
+	        	<td> {{ entry.entry_blurb }} </td>
+	        	{% if entry.entry_picture %}
+	        		<td> <img src = "{{ entry.entry_picture.url }}" > </td>
+	        	{% endif %}
+
+	        </tr>
+    	{% endfor %}
+    </ul>
+{% else %}
+    <p>No Entries yet!</p>
+{% endif %}
