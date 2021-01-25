@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.urls import reverse
 
+from django.contrib.auth.decorators import login_required
 from .models import GuestbookForm, GuestbookEntry
-
+@login_required
 def guestentry(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -14,17 +16,14 @@ def guestentry(request):
             # ...
             # redirect to a new URL:
             form.save()
-            return HttpResponse('thanks!')
+            return HttpResponseRedirect(reverse('homepage'))
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = GuestbookForm()
-
-    return render(request, 'guestbook/form.html', {'form': form})
-
-#def guestbook(request):
- #   return HttpResponse("Hello, this is the guestbook form page!")
-
+        homepage_link = reverse('homepage')
+    return render(request, 'guestbook/form.html', {'form': form, 'homepage_link':homepage_link})
+@login_required
 def guestbook(request):
     latest_guestbook = GuestbookEntry.objects.order_by('entry_date')
     context = {'latest_guestbook': latest_guestbook}

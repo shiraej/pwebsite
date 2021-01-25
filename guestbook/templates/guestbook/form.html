@@ -1,3 +1,4 @@
+<a href = {{homepage_link}}> Skip the guestbook</a>
 <form action="/guestbook/entry/" method="post"  enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_table }}
