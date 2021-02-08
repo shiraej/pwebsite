@@ -36,6 +36,7 @@ MEDIA_URL = '/media/'
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'guestbook.apps.GuestbookConfig',
+    'gallery.apps.GalleryConfig',
     #'lockdown',
     'django.contrib.admin',
     'django.contrib.auth',

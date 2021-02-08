@@ -16,9 +16,23 @@ def passwordpage(request):
 	        return HttpResponseRedirect(reverse('homepage'))
 	        
 	    else:
-        	return HttpResponseRedirect(reverse('passwordpage'))
+        	return HttpResponseRedirect(reverse('tryagain'))
     else:
     	return render(request, 'homepage/password.html') 
+
+def tryagain(request):
+    if request.method == 'POST':
+	    username = 'visitor'
+	    password = request.POST['password']
+	    user = authenticate(request, username=username, password=password)
+	    if user is not None:
+	        login(request, user)
+	        return HttpResponseRedirect(reverse('homepage'))
+	        
+	    else:
+        	return HttpResponseRedirect(reverse('tryagain'))
+    else:
+    	return render(request, 'homepage/wrongpassword.html') 
 
 @login_required
 def homepage(request):

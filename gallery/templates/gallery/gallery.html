@@ -1,0 +1,9 @@
+{% if gallery %}
+	<ul>
+		{% for entry in gallery %}
+			<ul>
+				<li><img src= "{{entry.cover_photo.url}}"> {{entry.name}}</li>
+			</ul>
+		{% endfor %}
+	</ul>
+{% endif %}
