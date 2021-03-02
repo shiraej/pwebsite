@@ -36,6 +36,9 @@
   <!-- pick a font for all of the paragraphs -->
 
 }
+.nav-li {
+  font-size:20px;
+}
 .navbar-nav.navbar-center { 
   position: absolute; 
   left: 50%; 
@@ -61,18 +64,17 @@
 
       <div class="navbar-collapse collapse" id="thenavbar">  
         <ul class="navbar-nav navbar-center mb-2 mb-sm-0" >
-          <li class="nav-item px-3">
-            <a class="nav-link fs-5 active" style="font-size:15px" aria-current="page" href="#">About</a>
+
+          <li class="nav-item fs-3">
+            <a class="nav-link active" aria-current="page" href="#">About</a>
           </li> 
-          <li class="nav-item fs-5">
+
+          <li class="nav-item fs-3">
             <a class="nav-link active" aria-current="page" href={% url 'gallery' %}>Gallery</a>
           </li> 
-          <li class="nav-item dropdown">
-            <a class="nav-link fs-5 dropdown-toggle" style="color:white" href="#" id="guestbook" data-bs-toggle="dropdown" aria-expanded="false">Guestbook</a>
-            <ul class="dropdown-menu" aria-labelledby="guestbook">
-              <li><a class="dropdown-item" href={% url 'guestbook_entry' %}>Sign Guestbook</a></li>
-              <li><a class="dropdown-item" href={% url 'guestbook' %}>See Guestbook</a></li>
-            </ul>
+
+          <li class="nav-item fs-3">
+            <a class="nav-link active" aria-current="page" href={% url 'guestbook' %}>Guestbook</a>
           </li>
           
         </ul>
