@@ -1,9 +1,30 @@
+{% extends "main.html" %}
+
+{% block content %}
 {% if gallery %}
-	<ul>
-		{% for entry in gallery %}
-			<ul>
-				<li><img src= "{{entry.cover_photo.url}}"> {{entry.name}}</li>
-			</ul>
-		{% endfor %}
-	</ul>
+	<div class = "album py-5" style="background-color:#e6e6ff">
+		<div class = "container">
+			<div class = "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+				{% for entry in gallery %}
+					<div class="col">
+		          		<div class="card shadow-sm border-3 border-dark">
+			            		<title>{{entry.name}}</title>
+			            		<img src= "{{entry.cover_photo.url}}" alt = "{{entry.name}} picture" class = "img-responsive img-shrink-250 img-thumbnail bg-dark"> 
+			            	<div class="card-body">
+			              		<h5 class="card-title text-center">{{entry.name}}</h5>
+			              		<p class="text-center text-muted">{{entry.dates}}</p>
+			              		<div class="d-grid gap-2">
+			                  		<a class="btn btn-sm btn-block btn-outline-secondary btn-dark" style = "color:white" href={% url 'details' entry.id %}>Click for more</a>
+			                		
+			              		</div>
+			            	</div>	
+		          		</div>
+		        	</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 {% endif %}
+{% endblock content %}
+<!-- fix centering of nav items mx-auto is off center-->
