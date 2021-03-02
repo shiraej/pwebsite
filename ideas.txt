@@ -1,0 +1,11 @@
+ideas
+
+tooltip = title attribute in html tag (script that makes random facts as an easter egg tooltip)
+
+gps file for adventure
+<div class="d-flex justify-content-between align-items-center">
+
+		try:
+		adv = AdventurePicture.objects.filter(pk=adventure_id).values()
+	except AdventurePicture.DoesNotExist:
+		raise Http404("Pictures do not exist")
