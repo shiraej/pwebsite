@@ -11,3 +11,6 @@ loop through jokes for default
 		adv = AdventurePicture.objects.filter(pk=adventure_id).values()
 	except AdventurePicture.DoesNotExist:
 		raise Http404("Pictures do not exist")
+
+
+Unit testing guestbook
