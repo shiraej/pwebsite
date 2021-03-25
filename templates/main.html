@@ -3,9 +3,10 @@
 <html lang="en">
   
   <head>
+    {% load static %}
 	  	 <!-- Latest compiled and minified CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
+  <link  rel="stylesheet" type="text/css" href="{% static 'stylesheets/main.css' %}">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -16,35 +17,7 @@
 
 
 
-  <style>
-.img-shrink-250 {
-  object-fit: contain; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  height: 250px;
-}
-.img-shrink-700 {
-  object-fit: contain; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
-  height: 700px;
-}
 
-.p-small {
-  font-size: 25px;
-}
-
-.p {
-  <!-- pick a font for all of the paragraphs -->
-
-}
-.nav-li {
-  font-size:20px;
-}
-.navbar-nav.navbar-center { 
-  position: absolute; 
-  left: 50%; 
-  transform: translatex(-50%); 
-        } 
-  </style>
   </head>
   
   <body>
@@ -58,6 +31,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3" aria-label="The navbar">
     <div class="container-fluid">
       <a class="navbar-brand fs-3" href= {% url "homepage" %} >Home</a>
+
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#thenavbar" aria-controls="thenavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -65,16 +39,16 @@
       <div class="navbar-collapse collapse" id="thenavbar">  
         <ul class="navbar-nav navbar-center mb-2 mb-sm-0" >
 
-          <li class="nav-item fs-3">
-            <a class="nav-link active" aria-current="page" href="#">About</a>
+          <li class="nav-item fs-3 mx-5">
+            <a class="nav-link link-color" aria-current="page" href="#">About</a>
           </li> 
 
-          <li class="nav-item fs-3">
-            <a class="nav-link active" aria-current="page" href={% url 'gallery' %}>Gallery</a>
+          <li class="nav-item fs-3 mx-5">
+            <a class="nav-link link-color" aria-current="page" href={% url 'gallery' %}>Gallery</a>
           </li> 
 
-          <li class="nav-item fs-3">
-            <a class="nav-link active" aria-current="page" href={% url 'guestbook' %}>Guestbook</a>
+          <li class="nav-item fs-3 mx-5 ">
+            <a class="nav-link link-color" aria-current="page" href={% url 'guestbook' %}>Guestbook</a>
           </li>
           
         </ul>
@@ -83,6 +57,7 @@
   </nav>
 
 {% block content %}{% endblock %}
+
 
 	<!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

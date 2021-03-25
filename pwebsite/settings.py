@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
+STATICFILES_DIRS = ('C:/Users/Shira/Documents/dev/pwebsite/templates/statfiles/stylesheets/',)
+
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'guestbook.apps.GuestbookConfig',

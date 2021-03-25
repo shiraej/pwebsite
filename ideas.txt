@@ -3,6 +3,8 @@ ideas
 tooltip = title attribute in html tag (script that makes random facts as an easter egg tooltip)
 
 gps file for adventure
+
+loop through jokes for default
 <div class="d-flex justify-content-between align-items-center">
 
 		try:

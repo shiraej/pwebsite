@@ -1,27 +1,85 @@
-{% if latest_guestbook %}
-    <table>
-    	<tr> 
-    		<th> Date </th>
-    		<th> Name </th>
-    		<th> Favourite Pokemon </th>
-    		<th> Favourite Joke </th>
-    		<th> I wanted to say... </th>
-    		<th> Picture </th>
-    	</tr>
-    	{% for entry in latest_guestbook %}
-    		<tr>
-	        	<td> {{ entry.entry_date }} </td>
-	        	<td> {{ entry.entry_name }} </td>
-	        	<td> {{ entry.entry_fav_pkmn }} </td>
-	        	<td> {{ entry.entry_fav_joke }} </td>
-	        	<td> {{ entry.entry_blurb }} </td>
-	        	{% if entry.entry_picture %}
-	        		<td> <img src = "{{ entry.entry_picture_smole.url }}" > </td>
-	        	{% endif %}
+{% extends "main.html" %}
 
-	        </tr>
-    	{% endfor %}
-    </ul>
+{% block content %}
+{% if latest_guestbook %}
+    <div class="container py-5">
+        
+            <h1 class="d-flex justify-content-center">Welcome to the Guestbook!</h1>
+            <br>
+        <div class="d-flex justify-content-center">
+            <p class=" p-small"> Haven't signed yet? &nbsp;</p>
+            <span><a class="btn btn-primary" href={% url 'guestbook_entry' %}> Click Here! </a></span>
+        </div>
+        <br><br>
+        <div class="table-responsive-xl">
+            <table class="table table-hover align-middle">
+            	<thead>
+                    <tr> 
+                		<th class="col-1"> Date </th>
+                		<th class="col-2"> Name </th>
+                		<th class="col-2"> Favourite Pokemon </th>
+                		<th class="col-3"> Favourite Joke </th>
+                		<th class="col-3"> I wanted to say... </th>
+                		<th class="col-1"> Picture </th>
+                	</tr>
+                </thead>
+            	{% for entry in latest_guestbook %}
+            		<tbody>
+                        <tr>
+            	        	<td> {{ entry.entry_date }} </td>
+            	        	<td> {{ entry.entry_name }} </td>
+            	        	<td> {{ entry.entry_fav_pkmn }} </td>
+            	        	<td> {{ entry.entry_fav_joke }} </td>
+            	        	<td> {{ entry.entry_blurb }} </td>
+            	        	{% if entry.entry_picture %}
+            	        		<td> <img class="img-shrink-100" src = "{{ entry.entry_picture.url }}"  > </td>
+                            {% endif %}
+
+            	        </tr>
+                    </tbody>
+            	{% endfor %}
+            </table>
+
+            <!--Modal Code -->
+            <!-- add to element data-toggle="modal" data-target="#rowModal"-->
+
+        <div class="modal" tabindex="-1" role="dialog" id="rowModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Modal body text goes here.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Modal code ends -->
+        </div>
+    </div>
+
 {% else %}
-    <p>No Entries yet!</p>
+    <div class="container py-5">
+    
+        <h1 class="d-flex justify-content-center">Welcome to the Guestbook!</h1>
+        <br>
+    <div class="d-flex justify-content-center">
+        <p class=" p-small"> Haven't signed yet? &nbsp;</p>
+        <span><a class="btn btn-primary" href={% url 'guestbook_entry' %}> Click Here! </a></span>
+    </div>
+    <br><br>
+    <p class="d-flex justify-content-center p-small">No Entries yet!</p>
 {% endif %}
+
+{% endblock content %}
+
+<!--can't get table to be responsive >:[ -->

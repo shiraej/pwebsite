@@ -3,6 +3,7 @@
 {% block content %}
 {% if adv %}
 	<div class = "container py-5">
+<!--Carousel -->
 		<div class="card mx-auto bg-dark" style="width:100%">
 			<div id="picturecarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 			  <div class="carousel-inner">
@@ -34,6 +35,8 @@
 		</div>
 	
 	</div>
+
+<!--Written Content -->
 	<br><br>
 	<div class="d-flex justify-content-center">
 		<h1>{{adv.name}}</h1>
@@ -42,7 +45,15 @@
 		<p>{{adv.description}}</p>
 
 	</div>
-{% endif %}
+
+<!-- Map CHECK WHEN ONLINE IF IT WORKS< STYLIZE AFTERWARD-->
+
+	<div class="d-flex justify-content-center">
+		<iframe src = "{{adv.name}}.html" widge="600" height="600" style="border:1px solid black;"></iframe>
+	</div>
+</div>
+
+	{% endif %}
 {% endblock content %}
 <!-- figure out scaling for adv.name on carousel title screen svg preserveaspectratio viewbox confusion-->
 
