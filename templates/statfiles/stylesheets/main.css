@@ -1,0 +1,46 @@
+body {
+.img-shrink-100 {
+  object-fit: contain; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 100px;
+}
+.img-shrink-250 {
+  object-fit: contain; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 250px;
+}
+.img-shrink-700 {
+  object-fit: contain; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 700px;
+}
+
+.p-small {
+  font-size: 25px;
+}
+
+.p {
+  <!-- pick a font for all of the paragraphs -->
+
+}
+
+.navbar-nav.navbar-center { 
+  position: absolute; 
+  left: 50%; 
+  transform: translatex(-50%); 
+        } 
+
+.link-color{
+  color: #FFF !important;
+}
+.link-color:hover {
+  background-color : #999999;
+  color : white !important;
+}
+.form-center {
+  text-align: center;
+}
+.form-oneline{
+  display: inline-block;
+}
+}
