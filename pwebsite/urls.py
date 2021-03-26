@@ -27,7 +27,7 @@ urlpatterns = [
     path('', include('homepage.urls')),
     path('guestbook/', include('guestbook.urls')),
     path('gallery/', include('gallery.urls')),
-    path ('favicon.ico', RedirectView.as_view (url = '/static/images/favicon.ico')), #for error favicon.ico not found
+    #path ('favicon.ico', RedirectView.as_view (url = '/static/images/favicon.ico')), #for error favicon.ico not found
 ]
 
  #for getting picture to work

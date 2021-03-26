@@ -1,4 +1,5 @@
-body {
+
+
 .img-shrink-100 {
   object-fit: contain; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
@@ -20,7 +21,7 @@ body {
 }
 
 .p {
-  <!-- pick a font for all of the paragraphs -->
+  /* pick a font for all of the paragraphs */
 
 }
 
@@ -42,5 +43,4 @@ body {
 }
 .form-oneline{
   display: inline-block;
-}
 }

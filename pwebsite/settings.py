@@ -33,8 +33,8 @@ ALLOWED_HOSTS = []
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
-STATICFILES_DIRS = ('C:/Users/Shira/Documents/dev/pwebsite/templates/statfiles/stylesheets/',)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (BASE_DIR /'static',)
 
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
