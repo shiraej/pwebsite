@@ -9,7 +9,8 @@ def make_pic_path (instance, filename):
 
 def make_gps_path (instance, filename):
 	advname = instance.name
-	path = 'AdvGPS/{0}/{1}'.format(advname, filename)
+	ext = filename.split('.')[-1]
+	path = 'AdvGPS/{0}.{1}'.format(advname,ext)
 	return path
 
 #def cover_photo (instance):
