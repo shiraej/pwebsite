@@ -1,5 +1,4 @@
 
-
 .img-shrink-100 {
   object-fit: contain; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
