@@ -4,11 +4,11 @@
 
 
 <div class="container py-5">
-	<div class="d-inline-flex col-6 justify-content-center pb-4">
+	<div class="d-inline-flex col-12 justify-content-center pb-4">
 	    <p class=" p-small ">Not interested in signing? &nbsp;</p>
 	    <a class="btn btn-dark btn-lg" href={% url "homepage" %} > Skip the guestbook </a>
 	</div>
-<div class="">
+<div class="col-6 mx-auto">
 <form action= {% url 'guestbook_entry' %} method="post"  enctype="multipart/form-data">
     {% csrf_token %}
     
@@ -25,7 +25,7 @@
 
 	{% for field in form.visible_fields %}
 		{% if field == form.entry_name or field == form.entry_fav_pkmn%}
-			<div class="fieldWrapper form-group form-oneline col-3" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
+			<div class="fieldWrapper form-group form-oneline col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
 		
 			{{ field.label_tag }}
 
@@ -39,7 +39,7 @@
 		
 			</div>
 		{% else %}
-		<div class="fieldWrapper form-group col-6" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
+		<div class="fieldWrapper form-group col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
 		
 		{{ field.label_tag }}
 
@@ -56,6 +56,8 @@
 	<input type="submit" class="btn btn-dark my-2" value="Submit" />
 </form>
 </div>
+
+
 </div>
 
 {% endblock content %}
