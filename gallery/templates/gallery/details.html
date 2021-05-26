@@ -52,7 +52,7 @@
 		</div>
 		<br>
 		<div class="d-flex justify-content-center">
-			<iframe src = "{{adv.name}}.html" widge="600" height="600" style="border:1px solid black;"></iframe>
+			<iframe src = "{% url 'map' adv.id %}" widge="600" height="600" style="border:1px solid black;"></iframe>
 		</div>
 	{% endif %}
 </div>

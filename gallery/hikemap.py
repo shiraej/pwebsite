@@ -28,7 +28,7 @@ def process_gpx(filename):
 	
 	return gpx_df, pts_ser
 
-def generate_map(filename, hikename):
+def generate_map(filename, hikeid):
 	df = process_gpx(filename)[0]
 	points = process_gpx(filename)[1]
 
@@ -53,4 +53,4 @@ def generate_map(filename, hikename):
 
 	folium.LayerControl(collapsed=True).add_to(mymap)
 
-	mymap.save('./gallery/templates/gallery/{0}.html'.format(hikename))
+	mymap.save('./gallery/templates/gallery/maps/{0}.html'.format(hikeid))

@@ -20,3 +20,7 @@ def adv_details(request, adventure_id):
 	context = {'adv' : adv, 'pics' : pics}
 	return render(request, 'gallery/details.html', context)
 
+@login_required
+def adv_map(request, adventure_id):
+	return render(request, 'gallery/maps/{0}.html'.format(adventure_id))
+

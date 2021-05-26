@@ -35,7 +35,7 @@ class Adventure(models.Model):
 def model_created(sender, **kwargs):
     inst = kwargs['instance']
     if kwargs['created']:
-        generate_map(inst.gpstrax.path, inst.name)
+        generate_map(inst.gpstrax.path, inst.id)
 
 post_save.connect(model_created, sender=Adventure)
 
