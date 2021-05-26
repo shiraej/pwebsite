@@ -1,4 +1,6 @@
 # Specify filepatterns you want git to ignore.
+maps/
+media/
 .env
 ideas.txt
 LandslideLake.html
