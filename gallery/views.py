@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Adventure, AdventurePicture
 from django.contrib.auth.decorators import login_required
-
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 @login_required
 def adv_gallery(request):
@@ -21,6 +21,7 @@ def adv_details(request, adventure_id):
 	return render(request, 'gallery/details.html', context)
 
 @login_required
+@xframe_options_exempt
 def adv_map(request, adventure_id):
 	return render(request, 'gallery/maps/{0}.html'.format(adventure_id))
 
