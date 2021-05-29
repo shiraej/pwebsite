@@ -1,7 +1,34 @@
 {% extends "main.html" %}
 
 {% block content %}
+{% load static %}
+<div class="container py-5">
+	<div >
+		<img src="{% static 'img/drawing-1.svg' %}" alt='islandsharc drawing' class='img-shrink-250'>
+		<h1>
+			Welcome to Island Sharcs!
+		</h1>
+	</div>
+	<div class="col-12 mx-auto">
+		<p class= 'p-small'>
+			This website is the product of about half a year of learning and work. I was very excited by the ease with which one can throw together dynamic web applications with Django and I wanted try my own hand at creating something simple yet fun.
+				<br><br>
+			Just as each adventure you'll find in our gallery inspired in us only more desire to explore our island and to grow our skills in the mountains, throughout the creation of this website, I have been inspired to tackle new ideas/projects and grow my skills in the _______something_____.
+				<br><br>
+			I had a lot of help from my father especially during deployment (which turned out to be a whole hell of a lot harder than I expected). And in case you're interested in doing some of the same things I used these awesome resources:
+				<br><br>
+			1) <a href='https://docs.djangoproject.com/en/3.2/'>Django Documentation</a>
+				<br>
+			2) Multiple articles from this <a href='https://simpleisbetterthancomplex.com/'>blog</a>
+				<br>
+			3) For the mapping I used this <a href='https://towardsdatascience.com/build-interactive-gps-activity-maps-from-gpx-files-using-folium-cf9eebba1fe7'>guide</a>
+				<br>
+			4) Deployment <a href='https://vahiwe.medium.com/deploy-django-and-flask-applications-in-the-cloud-using-nginx-gunicorn-and-systemd-centos-7-4b6aef3a8578'>guide</a>
+				<br><br>
+			Marc and I hope you enjoy browsing our adventures!
+		</p>
+	</div>
+</div>
 
-<p> Hello! </p>
 
 {% endblock content %}
