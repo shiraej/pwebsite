@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container py-5">
+	<div class = 'col-md-12 text-center' >
+		
+			<img src="{% static 'img/drawing-1.svg' %}" alt='islandsharc drawing' class='img-shrink-250 mx-5'>
+			<h1>
+				Thank you for signing!
+			</h1>
+			
+	</div>
+	<br>
+	<div class="col-md-12 text-center">
+	   	<a class="btn btn-dark btn-lg" href={% url "homepage" %} > About </a>
+   		<a class="btn btn-dark btn-lg" href={% url "guestbook" %} > Guestbook </a>
+	</div>
+	
+</div>
+
+{% endblock content %}

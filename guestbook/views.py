@@ -16,7 +16,7 @@ def guestentry(request):
             # ...
             # redirect to a new URL:
             form.save()
-            return HttpResponseRedirect(reverse('homepage'))
+            return HttpResponseRedirect(reverse('thankyou'))
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -28,6 +28,9 @@ def guestbook(request):
     latest_guestbook = GuestbookEntry.objects.order_by('entry_date').reverse()
     context = {'latest_guestbook': latest_guestbook}
     return render(request, 'guestbook/guestbook.html', context)
+
+def thankyou(request):
+    return(render(request, 'guestbook/thankyouredirect.html'))
 
 
 

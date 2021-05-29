@@ -12,6 +12,9 @@ class GuestbookEntry (models.Model):
 	entry_picture = models.ImageField('Want to include a picture?', upload_to = 'uploads/', blank = True)
 	entry_blurb = models.CharField('Anything else you\'d like to say?', max_length = 400, blank = True)
 
+	def __str__(self):
+		return self.entry_name
+		
 	def clean(self):
 		if self.entry_fav_pkmn == '':
 			self.entry_fav_pkmn = 'Potatomon'

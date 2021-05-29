@@ -2,6 +2,7 @@
 maps/
 media/
 uploads/
+static/
 .env
 ideas.txt
 LandslideLake.html
