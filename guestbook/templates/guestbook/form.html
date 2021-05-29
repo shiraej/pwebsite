@@ -8,54 +8,54 @@
 	    <p class=" p-small ">Not interested in signing? &nbsp;</p>
 	    <a class="btn btn-dark btn-lg" href={% url "homepage" %} > Skip the guestbook </a>
 	</div>
-<div class="col-6 mx-auto">
-<form action= {% url 'guestbook_entry' %} method="post"  enctype="multipart/form-data">
-    {% csrf_token %}
-    
-    {% for hidden_field in form.hidden_fields %}
-    	{{hidden_field}}
-    {% endfor %}
-    {% if form.non_field_errors %}
-    	<div class="alert alert-danger" role="alert">
-    		{% for error in form.non_field_errors %}
-    			{{error}}
-    		{% endfor %}
-    	</div>
-    {%endif%}
+	<div class="col-6 mx-auto">
+		<form action= {% url 'guestbook_entry' %} method="post"  enctype="multipart/form-data">
+		    {% csrf_token %}
+		    
+		    {% for hidden_field in form.hidden_fields %}
+		    	{{hidden_field}}
+		    {% endfor %}
+		    {% if form.non_field_errors %}
+		    	<div class="alert alert-danger" role="alert">
+		    		{% for error in form.non_field_errors %}
+		    			{{error}}
+		    		{% endfor %}
+		    	</div>
+		    {%endif%}
 
-	{% for field in form.visible_fields %}
-		{% if field == form.entry_name or field == form.entry_fav_pkmn%}
-			<div class="fieldWrapper form-group form-oneline col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
-		
-			{{ field.label_tag }}
+			{% for field in form.visible_fields %}
+				{% if field == form.entry_name or field == form.entry_fav_pkmn%}
+					<div class="fieldWrapper form-group form-oneline col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
+				
+					{{ field.label_tag }}
 
-			{% if field.field.required %}<span class="required">*</span>{% endif %}
-			
-			{{ field }}
-			
-			{% if field.help_text %}
-				<p class="help">{{ field.help_text|safe }}</p>
-			{% endif %}
-		
-			</div>
-		{% else %}
-		<div class="fieldWrapper form-group col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
-		
-		{{ field.label_tag }}
+					{% if field.field.required %}<span class="required">*</span>{% endif %}
+					
+					{{ field }}
+					
+					{% if field.help_text %}
+						<p class="help">{{ field.help_text|safe }}</p>
+					{% endif %}
+				
+					</div>
+				{% else %}
+				<div class="fieldWrapper form-group col-12" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
+				
+				{{ field.label_tag }}
 
-		{% if field.field.required %}<span class="required">*</span>{% endif %}
-		
-		{{ field }}
-		
-		{% if field.help_text %}
-			<p class="help">{{ field.help_text|safe }}</p>
-		{% endif %}
-		</div>
-		{%endif%}
-	{% endfor %}
-	<input type="submit" class="btn btn-dark my-2" value="Submit" />
-</form>
-</div>
+				{% if field.field.required %}<span class="required">*</span>{% endif %}
+				
+				{{ field }}
+				
+				{% if field.help_text %}
+					<p class="help">{{ field.help_text|safe }}</p>
+				{% endif %}
+				</div>
+				{%endif%}
+			{% endfor %}
+			<input type="submit" class="btn btn-dark my-2" value="Submit" />
+		</form>
+	</div>
 
 
 </div>
