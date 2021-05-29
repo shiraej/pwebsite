@@ -25,7 +25,6 @@
                 </thead>
             	{% for entry in latest_guestbook %}
             		<tbody>
-                        <!--<tr data-toggle="modal" data-id = "{{entry.id}}" data-target="#imgModal">-->
                         <tr>
             	        	<td> {{ entry.entry_date }} </td>
             	        	<td> {{ entry.entry_name }} </td>
@@ -40,59 +39,6 @@
                     </tbody>
             	{% endfor %}
             </table>
-
-            <!--Modal Code -->
-            <div id="imgModal" class="modal">
-
-              <!-- The Close Button -->
-              <span class="close">&times;</span>
-
-              <!-- Modal Content (The Image) -->
-              <img class="modal-content img-shrink-250" id="gImg" src="{{ entry.entry_picture.url }}">
-
-              <!-- Modal Caption (Image Text) -->
-              <div id="caption">slkfjsldkj</div>
-            </div>
-            <!-- add to element data-toggle="modal" data-target="#rowModal"-->
-
-<script>
-
-/*
-       $(function(){
-    $('#imgModal').modal({
-        keyboard: true,
-        backdrop: "static",
-        show:false,
-
-    }).on('show', function(){ //subscribe to show method
-          var getIdFromRow = $(event.target).closest('tr').data('id'); //get the id from tr
-        //make your ajax call populate items or what even you need
-        $(this).find('#gImg').html($('<b> Order Id selected: ' + getIdFromRow  + '</b>'))
-    });
-});
-*/
-// Get the modal
-var modal = document.getElementById("imgModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("{{entry.entry_name}}click");
-var modalImg = document.getElementById("gImg");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}; 
-</script>
-        <!--Modal code ends -->
         </div>
     </div>
 
@@ -111,4 +57,3 @@ span.onclick = function() {
 
 {% endblock content %}
 
-<!--can't get table to be responsive >:[ -->
