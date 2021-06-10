@@ -20,7 +20,7 @@ def make_gps_path (instance, filename):
 class Adventure(models.Model):
 	name = models.CharField(max_length = 100)
 	dates = models.CharField(max_length = 100) 
-	description = models.CharField(max_length = 1000)
+	description = models.TextField(max_length = 5000)
 	gpstrax = models.FileField(upload_to = make_gps_path, blank = True)
 	
 	def cover_photo (self):

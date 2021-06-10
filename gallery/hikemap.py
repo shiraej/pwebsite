@@ -35,9 +35,9 @@ def generate_map(filename, hikeid):
 	#generate map
 	mymap = folium.Map( location=[ df.Latitude.mean(), df.Longitude.mean() ], zoom_start=12, tiles=None)
 
-	folium.TileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg', attr='terrain-bcg', name='Terrain Map', max_zoom=13).add_to(mymap)
 	folium.TileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', max_zoom=17, name= 'Topo Map - Higher Zoom', attr='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)').add_to(mymap)
-
+	folium.TileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg', attr='terrain-bcg', name='Terrain Map', max_zoom=13).add_to(mymap)
+	
 	#draw route
 	folium.PolyLine(points, color='red', weight=4.5, opacity=1).add_to(mymap)
 

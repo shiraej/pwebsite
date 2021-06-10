@@ -15,12 +15,11 @@
             <table class="table table-hover align-middle">
             	<thead>
                     <tr> 
-                		<th class="col-1"> Date </th>
+                		<th class="col-2"> Date </th>
                 		<th class="col-2"> Name </th>
                 		<th class="col-2"> Favourite Pokemon </th>
                 		<th class="col-3"> Favourite Joke </th>
                 		<th class="col-3"> I wanted to say... </th>
-                		<th class="col-1"> Picture </th>
                 	</tr>
                 </thead>
             	{% for entry in latest_guestbook %}
@@ -31,9 +30,7 @@
             	        	<td> {{ entry.entry_fav_pkmn }} </td>
             	        	<td> {{ entry.entry_fav_joke }} </td>
             	        	<td> {{ entry.entry_blurb }} </td>
-            	        	{% if entry.entry_picture %}
-            	        		<td> <img id = "{{entry.entry_name}}click" class="img-shrink-100" src = "{{ entry.entry_picture.url }}"  > </td>
-                            {% endif %}
+                            
 
             	        </tr>
                     </tbody>

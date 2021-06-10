@@ -23,12 +23,14 @@ def guestentry(request):
         form = GuestbookForm()
         homepage_link = reverse('homepage')
     return render(request, 'guestbook/form.html', {'form': form, 'homepage_link':homepage_link})
+
 @login_required
 def guestbook(request):
     latest_guestbook = GuestbookEntry.objects.order_by('entry_date').reverse()
     context = {'latest_guestbook': latest_guestbook}
     return render(request, 'guestbook/guestbook.html', context)
 
+@login_required
 def thankyou(request):
     return(render(request, 'guestbook/thankyouredirect.html'))
 
