@@ -3,6 +3,28 @@
 {% block content %}
 {% if adv %}
 	<div class = "container py-5">
+
+
+		<!--Written Content -->
+
+	<div class="d-flex justify-content-center">
+		<h1>{{adv.name}}</h1>
+	</div>
+	<hr style='border: 3px solid black'>
+	<!-- buttons-->
+	<div class = 'text-center'>
+		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href={% url "gallery" %} > Go Back </a>
+		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href='#picturecarousel' > Photo Album </a>
+		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href='#gpxmap' > Map </a>
+	</div>
+	<br>
+	<div class="text-left p-small" >
+		<p>{{adv.description|linebreaks}}</p>
+
+	</div>
+	
+		
+		<br><br>
 <!--Carousel -->
 		<div class="card mx-auto bg-dark" style="width:100%">
 			<div id="picturecarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
@@ -32,26 +54,20 @@
 	
 		</div>
 
-<!--Written Content -->
-	<br><br>
-	<div class="d-flex justify-content-center">
-		<h1>{{adv.name}}</h1>
-	</div>
-	<div class="d-flex justify-content-left p-small" >
-		<p>{{adv.description}}</p>
-
-	</div>
+<br><br>
 
 <!-- Map CHECK WHEN ONLINE IF IT WORKS< STYLIZE AFTERWARD-->
 	{% if adv.gpstrax %}
 
-		<div class="d-flex justify-content-center">
+		<div class="text-center" id='gpxmap'>
 			<a href="{{adv.gpstrax.url}}" download="{{adv.name}}">
 				<button type="button"> Download GPS Track </button>
 			</a>
+			<br><br><p> Terrain Map may not work in Chrome or Edge </p>
 		</div>
-		<br>
+		
 		<div class="d-flex justify-content-center">
+
 			<iframe src = "{% url 'map' adv.id %}" width="1400" height="600" style="border:1px solid black;"></iframe>
 		</div>
 	{% endif %}
