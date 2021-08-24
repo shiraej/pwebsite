@@ -14,7 +14,9 @@
 	<!-- buttons-->
 	<div class = 'text-center'>
 		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href={% url "gallery" %} > Go Back </a>
+		{%if pics%}
 		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href='#picturecarousel' > Photo Album </a>
+		{%endif%}
 		<a class="btn btn-dark btn-outline-secondary" style = "color:white" href='#gpxmap' > Map </a>
 	</div>
 	<br>
@@ -26,19 +28,22 @@
 		
 		<br><br>
 <!--Carousel -->
+	{% if pics %}
 		<div class="card mx-auto bg-dark" style="width:100%">
 			<div id="picturecarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 				<div class="carousel-inner">
 					<div class="carousel-item active">						
-						<svg width= "400px" height="216.5px" viewBox="0 0 100 700"preserveAspectRatio="xMidYMid meet" class="img-fluid img-shrink-700 w-100">
-							<text x="50%" y="50%" fill="#a6a6a6" dy=".3em" font-size="100" text-anchor="middle">{{adv.name}}</text>
-						</svg>		
+						<img src="{{firstpic.picture.url}}" class="d-block w-100 img-responsive img-shrink-700" alt="{{firstpic.picture_desc}}">
 					</div>
 
-				{% for entry in pics %}		   
+				{% for entry in pics %}	
+					{% if forloop.first %}
+						<!--continue-->
+					{% else %}	   
 				    <div class="carousel-item">
 					      <img src="{{entry.picture.url}}" class="d-block w-100 img-responsive img-shrink-700" alt="{{entry.picture_desc}}">
 					</div>
+					{% endif %}
 				{% endfor %}
 
 				</div>
@@ -53,7 +58,7 @@
 			</div>
 	
 		</div>
-
+		{% endif %}
 <br><br>
 
 <!-- Map CHECK WHEN ONLINE IF IT WORKS< STYLIZE AFTERWARD-->

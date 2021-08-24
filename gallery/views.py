@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 from .models import Adventure, AdventurePicture
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.clickjacking import xframe_options_exempt
@@ -15,9 +16,11 @@ def adv_details(request, adventure_id):
 	#pics = get_object_or_404(AdventurePicture, pk=adventure_id)
 	try:
 		pics = AdventurePicture.objects.filter(adventure=adventure_id)
-	except AdventurePicture.DoesNotExist:
-		raise Http404("Pictures do not exist")
-	context = {'adv' : adv, 'pics' : pics}
+		firstpic = pics[0]
+	except (AdventurePicture.DoesNotExist, IndexError):
+		pics = False
+		firstpic = False
+	context = {'adv' : adv, 'pics' : pics, 'firstpic':firstpic}
 	return render(request, 'gallery/details.html', context)
 
 @login_required
