@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import post_save
+#from django.db.models.signals import post_save
 from .hikemap import process_gpx, generate_map
 
 def make_pic_path (instance, filename):
@@ -26,18 +26,10 @@ class Adventure(models.Model):
 	def cover_photo (self):
 		cov = self.adventurepicture_set.get(cover = True)
 		return cov.picture
-
+	
 	cover = cover_photo
 	def __str__(self):
 		return self.name
-	
-#Put any methods to run after instance is added in here. Maybe put in views?
-def model_created(sender, **kwargs):
-    inst = kwargs['instance']
-    if kwargs['created']:
-        generate_map(inst.gpstrax.path, inst.id)
-
-post_save.connect(model_created, sender=Adventure)
 
 class AdventurePicture(models.Model):
 	picture = models.ImageField(upload_to = make_pic_path, blank = True)
