@@ -1,5 +1,6 @@
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
+from .hikemap import process_gpx, generate_map
 
 from .models import Adventure
 
