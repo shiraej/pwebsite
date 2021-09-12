@@ -68,12 +68,12 @@
 			<a href="{{adv.gpstrax.url}}" download="{{adv.name}}">
 				<button type="button"> Download GPS Track </button>
 			</a>
-			<br><br><p> Terrain Map may not work in Chrome or Edge </p>
+			<br><br>
 		</div>
 		
 		<div class="d-flex justify-content-center">
 
-			<iframe src = "{% url 'map' adv.id %}" width="1400" height="600" style="border:1px solid black;"></iframe>
+			<iframe src = "{% url 'map' adv.id %}" width="100%" height="600" style="border:1px solid black;"></iframe>
 		</div>
 	{% endif %}
 </div>

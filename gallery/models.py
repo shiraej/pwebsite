@@ -1,6 +1,5 @@
 from django.db import models
-#from django.db.models.signals import post_save
-from .hikemap import process_gpx, generate_map
+
 
 def make_pic_path (instance, filename):
 	advname = instance.adventure.name
@@ -12,10 +11,6 @@ def make_gps_path (instance, filename):
 	ext = filename.split('.')[-1]
 	path = 'AdvGPS/{0}.{1}'.format(advname,ext)
 	return path
-
-#def cover_photo (instance):
-	#cover = instance.Adventure.objects.filter(adventurepicture__cover = True)
-	#return instance.adventurepicture.objects.(cover = True)
 
 class Adventure(models.Model):
 	name = models.CharField(max_length = 100)

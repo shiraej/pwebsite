@@ -13,7 +13,6 @@ def adv_gallery(request):
 @login_required
 def adv_details(request, adventure_id):
 	adv = get_object_or_404(Adventure, pk=adventure_id)
-	#pics = get_object_or_404(AdventurePicture, pk=adventure_id)
 	try:
 		pics = AdventurePicture.objects.filter(adventure=adventure_id)
 		firstpic = pics[0]
